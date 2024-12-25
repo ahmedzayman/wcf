@@ -3,24 +3,27 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'dotnet build Solution1.sln'
-                sh 'dotnet build RESTApi.sln'
-                sh 'dotnet build GrpcService.sln'
+                bat 'dotnet build ./Solution1/Solution1.sln'
+                bat 'dotnet build ./RESTApi/RESTApi.sln'
+                bat 'dotnet build ./GrpcService/GrpcService.sln'
             }
         }
         stage('Test') {
             steps {
-                sh 'dotnet test'
+                // Specify each solution or test project file explicitly
+                bat 'dotnet test ./Solution1/Solution1.sln'
+                bat 'dotnet test ./RESTApi/RESTApi.sln'
+                bat 'dotnet test ./GrpcService/GrpcService.sln'
             }
         }
         stage('Docker Build') {
             steps {
-                sh 'docker-compose build'
+                bat 'docker-compose build'
             }
         }
         stage('Deploy') {
             steps {
-                sh 'docker-compose up -d'
+                bat 'docker-compose up -d'
             }
         }
     }
