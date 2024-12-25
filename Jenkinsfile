@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'dotnet build ./Solution1/Solution1.sln'
-                bat 'dotnet build ./RESTApi/RESTApi.sln'
-                bat 'dotnet build ./GrpcService/GrpcService.sln'
+                bat 'dotnet build D:\wcf\Solution1\Solution1.sln'
+                bat 'dotnet build D:\wcf\ApiZinc\RESTApi\RESTApi.sln'
+                bat 'dotnet build D:\wcf\gRPC\GrpcService\GrpcService.sln'
             }
         }
         stage('Test') {
             steps {
                 // Specify each solution or test project file explicitly
-                bat 'dotnet test ./Solution1/Solution1.sln'
-                bat 'dotnet test ./RESTApi/RESTApi.sln'
-                bat 'dotnet test ./GrpcService/GrpcService.sln'
+                bat 'dotnet test  D:\wcf\Solution1\Solution1.sln'
+                bat 'dotnet test D:\wcf\ApiZinc\RESTApi\RESTApi.sln'
+                bat 'dotnet test D:\wcf\gRPC\GrpcService\GrpcService.sln'
             }
         }
         stage('Docker Build') {
