@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'dotnet build ./SOAPService/SOAPService.sln'
+                bat 'dotnet build ./Solution1/Solution1.sln'
                 bat 'dotnet build ./RESTApi/RESTApi.sln'
                 bat 'dotnet build ./GrpcService/GrpcService.sln'
             }
@@ -11,7 +11,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Specify each solution or test project file explicitly
-                bat 'dotnet test ./SOAPService/SOAPService.sln'
+                bat 'dotnet test ./Solution1/Solution1.sln'
                 bat 'dotnet test ./RESTApi/RESTApi.sln'
                 bat 'dotnet test ./GrpcService/GrpcService.sln'
             }
