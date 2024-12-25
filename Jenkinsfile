@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'dotnet build \Solution1\Solution1.sln'
-                bat 'dotnet build \ApiZinc\RESTApi\RESTApi.sln'
-                bat 'dotnet build \gRPC\GrpcService\GrpcService.sln'
+                bat 'dotnet build ./Solution1/Solution1.sln'
+                bat 'dotnet build ./RESTApi/RESTApi.sln'
+                bat 'dotnet build ./gRPC/GrpcService/GrpcService.sln'
             }
         }
         stage('Test') {
