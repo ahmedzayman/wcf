@@ -10,10 +10,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                // Specify each solution or test project file explicitly
-                bat 'dotnet test  D:\wcf\Solution1\Solution1.sln'
-                bat 'dotnet test D:\wcf\ApiZinc\RESTApi\RESTApi.sln'
-                bat 'dotnet test D:\wcf\gRPC\GrpcService\GrpcService.sln'
+                bat "dotnet test D:\wcf\Solution1\Solution1.sln" 
+                bat "dotnet test D:\wcf\ApiZinc\RESTApi\RESTApi.sln"
+                bat "dotnet test D:\wcf\gRPC\GrpcService\GrpcService.sln"
             }
         }
         stage('Docker Build') {
